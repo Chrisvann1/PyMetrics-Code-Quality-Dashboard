@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title> CodeHealth </title>
+            <!--Neseccary format for allowing the user to access the html,css, and js as 
+            links with the flask framework. I went with "static" because flask 
+            automatically looks for a folder called static when searching for static pages 
+            needed for the structure of the website such as css and javascript-->
+            <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+            <script defer src="{{ url_for('static', filename='javascript.js') }}"></script>
+        </head>
+
+        <body>
+            
+            <div class = "header-bar">
+                    <h1 class="logo">Py<span>Metrics</span></h1>
+                </div>
+
+                <h2 class="center"> Are you ready to improve your Python code quality? <br> Click the button to get your metrics! </h2>
+                <div class = "container">
+                    <div class = "vertical-center">
+                        <!--url_for allows me to connect to flask functions-->
+                        <a href="{{ url_for('MetricPage') }}">
+                            <button type="button">Metric Page</button>
+                        </a>
+                    </div>
+                </div>
+                <br><br><br><br>
+                <!--Informational section for user - provides info about code quality and-->
+                <h2> <u>The Importance of Code Quality </u> </h2>
+                <h3> High code quality leads to more maintainable, reliable, and functional code. Without considering code quality you will spend a significantly greater amount of time attempting to fix bugs, improve performance, collaborate effectively, detect vulnerabilites, and etc. This platform can provide you and your team with a starting point for improving the quality of your code.</h3>
+                <div class = "metric_body">
+                <h2> <u>Available Metrics</u></h2>
+                <h3>Cyclomatic Complexity: <br>
+                    Counts number of decision points in a code base
+                </h3>
+
+                <h3>Code Documentation: <br>
+                    Checks percentage of code that is documented
+                    </h3>
+
+                <h3>Code Coverage: <br>
+                    Checks percentage of code covered by automated testing
+                </h3>
+
+                <h3>Code Style: <br>
+                    Ensures code adheres to established practices and standards
+                </h3>
+
+                <h3>Code Duplication: <br>
+                    Identifies percentage of duplicated code
+                </h3>
+            </div>
+        </body>
+
+
+
+
+    </html>
+
+
+
+
+

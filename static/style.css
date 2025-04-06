@@ -1,0 +1,213 @@
+/*padding: creates space between content and content border in all directions
+(helps with readability)*/
+/*margin: creates space between one object and another object. 
+(makes elements further away from eachother). Good for readability 
+and creates white space that makes the website overall easier to view
+*/
+
+/*display: flex -  aligns distributes space 
+and aligns items in an efficient and dynamic way
+even if size is not known*/
+
+*{
+    padding: 0px; 
+    margin: 0px; 
+    box-sizing: border-box;
+}
+
+/*adds the black header for easier readibility of the logo*/
+.header-bar {
+    background-color: black;
+    width: 100vw; 
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/*format, font, and color for body text (almost everything)*/
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: #FAF8F0;
+    color: #556b2f;
+    height: 100vh;
+    width: 100%;
+}
+
+.metric_body{
+    background-color: #E5E1D8;
+}
+
+/*class for the "Py" in the logo*/
+.logo{
+    color:#556b2f;
+    font-size: 35; 
+    letter-spacing: 1px; 
+    cursor: pointer; 
+}
+
+.center{
+    text-align: center;
+}
+
+
+
+/*for the title (makes "Metrics" this color)*/
+span{
+    color: #FAF8F0;
+}
+
+h1{
+    color: #556b2f;
+    margin: 20px 0px 20px; 
+    font-size: 75px;
+    padding: 0px;
+    margin: 0px; 
+}
+
+h2{
+    color: #556b2f; 
+    font-size: 30px;
+    margin-bottom: 50px; 
+    text-align: center;
+    padding: 8px; 
+    margin: 16px;
+    line-height: 38px;
+}
+
+h3{
+    color: #556b2f;
+    letter-spacing: 2px;
+    font-size: 22px;
+    padding: 15px; 
+    margin: 16px;
+    line-height: 30px;
+    border-radius: 10px;
+}
+
+h4{
+    color: #556b2f;
+    letter-spacing: 2px;
+    font-size: 15px;
+    padding: 12px; 
+    margin: 16px;
+}
+
+/*overall button class - this exact configuration is used for the button 
+on the first page*/
+button {
+    background-color: #4C9F70; 
+    border-radius: 8px;
+    color: white; 
+    border: none;
+    padding: 15px 30px; 
+    font-size: 3.6rem; 
+    font-weight: bold; 
+    cursor: pointer;
+    transition: background-color 0.2s; 
+    text-align: center;
+    
+    
+}
+
+/*Provides a hover effect by chaning the background color slightly and making the button larger*/
+button:hover {
+    background-color: #417A54;
+    transform: scale(1.1);
+}
+
+/* button for select metrics*/
+.button_insert {
+    background-color: #E76F51; 
+    font-size: 2rem;
+    width: 350px; 
+    height: 150px;
+}
+
+/* hover for select metrics*/
+.button_insert:hover {
+    background-color: #D45C3A;
+}
+
+/* button for run code metrics (second page) */
+.button_run {
+    font-size: 2.0rem; 
+    width: 350px; 
+    height: 150px;
+}
+
+/*creates a container for the button on the first page, centers the button, 
+and creates a green outline*/
+.container {
+    height: 200px;
+    position: relative;
+    border: 3px solid green;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+/*container for buttons on the second page*/
+.container2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 3px solid green;
+}
+
+
+/*helps position buttons and creates a gap between the buttons*/
+.vertical-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+  }
+
+
+  /*just here to make the scores more readable on the 2nd page*/
+.metric-scores {
+    padding: 16px; 
+    margin: 8px;
+}
+
+/*For the slightly darker box below buttons on second page*/
+.metric_box{
+    background-color: #E5E1D8;
+    height: 100%; 
+    width: 30%; 
+}
+
+
+
+/*height and width of graph*/
+#metricGraph {
+    width: 90%;
+    height: 90%;
+    max-width: 650px;
+    max-height: 650px;
+}
+
+.filter {
+    margin: 16px; 
+    padding: 32px;
+}
+
+/*This container wraps around both the metric score and graph
+and puts them side by side*/
+.output_box {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 40px auto;
+}
+
+.metric_graph_box {
+    width: 800px;
+    height: 800px;
+    display: flex;
+    justify-content: left;
+    margin-left: 80px;
+}

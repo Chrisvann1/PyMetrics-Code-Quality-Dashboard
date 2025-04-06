@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title> CodeHealth-Run </title>
+            <!--Neseccary format for allowing the user to access the html,css, and js as 
+            links with the flask framework. I went with "static" because flask 
+            automatically looks for a folder called static when searching for static pages 
+            needed for the structure of the website such as css and javascript-->
+            <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+            <script defer src="{{ url_for('static', filename='javascript.js') }}"></script>
+            <!--Allows me to put the chart on the website-->
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        </head>
+
+        <body>
+            <div class = "header-bar">
+                <h1 class="logo">Py<span>Metrics</span></h1>
+            </div>
+
+            <div class = "container2">
+                <div class = "vertical-center">
+                    <button type="button" class=button_insert >Select Metrics</button>
+                    <button type="button" class=button_run onclick="InsertFolderAndRun()">Select Folder & Run Metrics</button>
+                </div>
+            </div>
+
+            <div class="output_box" >
+                <div class = "metric_box">
+                    <h2>Metric Scores: </h2>
+                    <h3 id="overall_score" class=metric-scores></h3>
+                    <div id="metric_scores1" class=metric-scores></div>
+                    <div id="metric_scores2" class=metric-scores></div>
+                    <div id="metric_scores3" class=metric-scores></div>
+                </div>
+                
+                <div class = "metric_graph_box">
+                    <canvas id="metricGraph"></canvas>
+                </div>
+            </div>
+        </body>
+
+
+    </html>
