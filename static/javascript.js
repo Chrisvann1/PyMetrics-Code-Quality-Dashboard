@@ -1,32 +1,42 @@
+//Intializes graph
+let chart = null;
+
+// Function allows user to select a folder of Python files 
+// and display their metrics on the dashboard
 async function InsertFolderAndRun() {
-    //Allows me to select a folder from my directory
+
+    //Allows selection of folder from directory
     const folder = await window.showDirectoryPicker();
     let files = []; 
 
 
-    //Allows you to create FormData object 
-    //to send the files themselves rather than 
-    //their names/paths (which I was trying to do before)
+    //FormData object to access file information on backend
     const formData = new FormData();
 
 
-    //Iterates through all the files in the folder 
-    //and stores in an array called files if the file 
-    //name ends with .py
-    //Await allows you to pause the execution of the for loop
-    //until the iteration is complete
+    //Iterates through all the files in the folder and stores in an array called files if the file name ends with .py
+    //folder.values - all the files from the directory you picked 
+    //fileHandle - variable holding the file we are on while iterating through the directory folder
     for await (const fileHandle of folder.values()) {
         if (fileHandle.name.endsWith('.py')) {
-            const file = await fileHandle.getFile();  // Read file
+            //reads file
+            const file = await fileHandle.getFile(); 
             files.push(file);
-            formData.append('files', file, fileHandle.name);  // Append to FormData
+            formData.append('files', file, fileHandle.name);
         }
     }
 
-
+    //Edge case for if a folder has no Python files - inform the user and destroy the chart
     if (files.length == 0) {
-        console.log("No Python files")
-        return; 
+        document.getElementById("overall_score").innerText = "No Python files in the folder.";
+        document.getElementById("metric_scores1").innerText = "";
+        document.getElementById("metric_scores2").innerText = "";
+        document.getElementById("metric_scores3").innerText = "";
+        
+        if (chart) {
+            chart.destroy();
+        }
+        return;
     }
 
 
@@ -36,26 +46,27 @@ async function InsertFolderAndRun() {
         body: formData,
     });
 
-    //Allows you to take the metric scores calculated with python 
-    //and send them to the console of the website
+    //Sends scores to console of website
     const all_scores = await response.json();
     console.log(all_scores);
 
-    //allows you to use the metric_score information and put the text on the actual website
-    //rather than just the console
+
+    //Puts metric score information on actual dashboard (not just console)
     document.getElementById("overall_score").innerText = "PyMetrics Score: " + all_scores.overall_score.toFixed(2);
-    document.getElementById("metric_scores1").innerText = "Score 1: " + all_scores.metric_scores[0].toFixed(2);
-    document.getElementById("metric_scores2").innerText = "Score 2: " + all_scores.metric_scores[1].toFixed(2);
-    document.getElementById("metric_scores3").innerText = "Score 3: " + all_scores.metric_scores[2].toFixed(2);
+    document.getElementById("metric_scores1").innerText = "Cyclomatic Complexity Score: " + all_scores.metric_scores[0].toFixed(2);
+    document.getElementById("metric_scores2").innerText = "Documentation Quality Score: " + all_scores.metric_scores[1].toFixed(2);
+    document.getElementById("metric_scores3").innerText = "Code Style Score: " + all_scores.metric_scores[2].toFixed(2);
 
 
-    //Needed to "draw" on the website and specifies that you will be using a 
-    //2D chart. This is also needed to create an ID so that the chart can be accessed via HTMl code
+
+    //Creates ID so that the graph can be accessed via HTML and specifies 2D chart
+    //(Needed to "draw" on website)
     const graph_information = document.getElementById('metricGraph').getContext('2d')
-    //creates the chart
+    
+    //Bar Graph details
     const graph = {
         type: 'bar',
-        labels: ['Metric 1', 'Metric 2', 'Metric 3'],
+        labels: ['Cyclomatic Complexity', 'Documentation Quality', 'Code Style'],
         datasets: [{
             data: all_scores.metric_scores,
             borderColor: '#008000',
@@ -96,9 +107,12 @@ async function InsertFolderAndRun() {
   },
 };
 
-
-    //creates an instance that allows you to render the chart 
-    //on the website
+    //need this to reset the graph information if you use another file by destroying the old chart 
+    if (chart) {
+        chart.destroy();
+    }
+    
+    //creates an instance that allows you to render the chart on the website
     chart = new Chart(graph_information,
     {
         type: 'bar', 

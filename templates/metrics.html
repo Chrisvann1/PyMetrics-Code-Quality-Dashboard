@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title> CodeHealth-Run </title>
+            <title> PyMetrics-Run </title>
             <!--Neseccary format for allowing the user to access the html,css, and js as 
             links with the flask framework. I went with "static" because flask 
             automatically looks for a folder called static when searching for static pages 
@@ -12,6 +12,7 @@
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         </head>
 
+        <!--This body section provides the content for the run metric page of the dashboard-->
         <body>
             <div class = "header-bar">
                 <h1 class="logo">Py<span>Metrics</span></h1>
@@ -19,7 +20,9 @@
 
             <div class = "container2">
                 <div class = "vertical-center">
-                    <button type="button" class=button_insert >Select Metrics</button>
+                    <a href="{{ url_for('HomePage') }}">
+                        <button type="button" class=button_insert>Return to Home Page</button>
+                    </a>
                     <button type="button" class=button_run onclick="InsertFolderAndRun()">Select Folder & Run Metrics</button>
                 </div>
             </div>

@@ -1,14 +1,3 @@
-/*padding: creates space between content and content border in all directions
-(helps with readability)*/
-/*margin: creates space between one object and another object. 
-(makes elements further away from eachother). Good for readability 
-and creates white space that makes the website overall easier to view
-*/
-
-/*display: flex -  aligns distributes space 
-and aligns items in an efficient and dynamic way
-even if size is not known*/
-
 *{
     padding: 0px; 
     margin: 0px; 
@@ -44,9 +33,9 @@ body{
     color:#556b2f;
     font-size: 35; 
     letter-spacing: 1px; 
-    cursor: pointer; 
 }
 
+/*Aligns text to center*/
 .center{
     text-align: center;
 }
@@ -117,7 +106,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* button for select metrics*/
+/* button for return to home page*/
 .button_insert {
     background-color: #E76F51; 
     font-size: 2rem;
@@ -125,7 +114,7 @@ button:hover {
     height: 150px;
 }
 
-/* hover for select metrics*/
+/* hover for return to home page*/
 .button_insert:hover {
     background-color: #D45C3A;
 }
@@ -167,13 +156,13 @@ and creates a green outline*/
   }
 
 
-  /*just here to make the scores more readable on the 2nd page*/
+  /*Adds some padding and margin between scores on metric page*/
 .metric-scores {
     padding: 16px; 
     margin: 8px;
 }
 
-/*For the slightly darker box below buttons on second page*/
+/*for the slightly darker box below buttons on the second page (contained for metric scores)*/
 .metric_box{
     background-color: #E5E1D8;
     height: 100%; 
@@ -190,11 +179,6 @@ and creates a green outline*/
     max-height: 650px;
 }
 
-.filter {
-    margin: 16px; 
-    padding: 32px;
-}
-
 /*This container wraps around both the metric score and graph
 and puts them side by side*/
 .output_box {
@@ -204,6 +188,7 @@ and puts them side by side*/
     margin: 40px auto;
 }
 
+/*Container for metric graph*/
 .metric_graph_box {
     width: 800px;
     height: 800px;

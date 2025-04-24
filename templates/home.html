@@ -1,7 +1,7 @@
 <!DOCTYPE html>
     <html>
         <head>
-            <title> CodeHealth </title>
+            <title> PyMetrics </title>
             <!--Neseccary format for allowing the user to access the html,css, and js as 
             links with the flask framework. I went with "static" because flask 
             automatically looks for a folder called static when searching for static pages 
@@ -10,6 +10,7 @@
             <script defer src="{{ url_for('static', filename='javascript.js') }}"></script>
         </head>
 
+        <!--This body section provides the content of the home page of the website-->
         <body>
             
             <div class = "header-bar">
@@ -39,16 +40,8 @@
                     Checks percentage of code that is documented
                     </h3>
 
-                <h3>Code Coverage: <br>
-                    Checks percentage of code covered by automated testing
-                </h3>
-
                 <h3>Code Style: <br>
                     Ensures code adheres to established practices and standards
-                </h3>
-
-                <h3>Code Duplication: <br>
-                    Identifies percentage of duplicated code
                 </h3>
             </div>
         </body>
