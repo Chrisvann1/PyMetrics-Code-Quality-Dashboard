@@ -75,7 +75,7 @@ def stuff():
 
 
 #makes sure code is well documented
-def test_documenation_positive(): 
+def test_documentation_positive(): 
     test = """
 def add(x,y): 
     #This code is used to add numbers
