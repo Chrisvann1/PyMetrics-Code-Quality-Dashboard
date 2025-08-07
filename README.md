@@ -6,11 +6,11 @@
 
 PyMetrics is a code quality metric dashboard where users can select a folder with Python files from their computer and run code quality metrics on them. The current available metrics are as follows:
 
-- Cyclomatic Complexity: The number of decision points in a code base\
+- Cyclomatic Complexity: The number of decision points in a code base
 
-- Code Documentation: The percentage of code that is documented\
+- Code Documentation: The percentage of code that is documented
 
-- Code Style: Adherence to established code practices and standards\
+- Code Style: Adherence to established code practices and standards
 
 ## What You Will Need
 
